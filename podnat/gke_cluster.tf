@@ -175,12 +175,12 @@ resource "kubernetes_service" "hello-server" {
     name = "hello-server"
 
     annotations = {
-      cloud.google.com/load-balancer-type = "Internal"
+      "cloud.google.com/load-balancer-type" = "Internal"
     }
   }
   
   spec {
-    selector {
+    selector = {
       run = "my-app"
     }
     
