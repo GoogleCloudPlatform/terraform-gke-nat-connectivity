@@ -48,7 +48,7 @@ resource "google_container_cluster" "cluster1" {
       "https://www.googleapis.com/auth/monitoring",
     ]
 
-    metadata {
+    metadata = {
       disable-legacy-endpoints = "true"
     }
 
@@ -104,12 +104,12 @@ resource "kubernetes_config_map" "ip-masq-agent" {
     name      = "ip-masq-agent"
     namespace = "kube-system"
 
-    labels {
+    labels = {
       maintained_by = "terraform"
     }
   }
 
-  data {
+  data = {
     config = <<EOF
 nonMasqueradeCIDRs:
   - ${join("\n  - ", var.non_masquerade_cidrs)}
@@ -135,14 +135,14 @@ resource "kubernetes_deployment" "www-server" {
     replicas = 3
 
     selector {
-      match_labels {
+      match_labels = {
         run = "my-app"
       }
     }
 
     template {
       metadata {
-        labels {
+        labels = {
           run = "my-app"
         }
       }
