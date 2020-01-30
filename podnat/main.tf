@@ -50,28 +50,35 @@ resource "google_project" "ivpc" {
   billing_account = "${data.google_billing_account.acct.id}"
 }
 
-resource "google_project_services" "ivpc" {
-  project    = "${google_project.ivpc.project_id}"
-  services   = [
-    "bigquery-json.googleapis.com",
-    "cloudapis.googleapis.com",
-    "clouddebugger.googleapis.com",
-    "cloudtrace.googleapis.com",
-    "compute.googleapis.com",
-    "container.googleapis.com",
-    "containerregistry.googleapis.com",
-    "datastore.googleapis.com",
-    "iam.googleapis.com",
-    "iamcredentials.googleapis.com",
-    "logging.googleapis.com",
-    "monitoring.googleapis.com",
-    "oslogin.googleapis.com",
-    "pubsub.googleapis.com",
-    "servicemanagement.googleapis.com",
-    "serviceusage.googleapis.com",
-    "sql-component.googleapis.com",
-    "storage-api.googleapis.com",
-    "storage-component.googleapis.com",
-  ]
+resource "google_project_service" "ivpc_compute" {
+  project   = "${google_project.ivpc.project_id}"
+  service   = "compute.googleapis.com"
 }
+
+resource "google_project_service" "ivpc_container" {
+  project   = "${google_project.ivpc.project_id}"
+  service   = "container.googleapis.com" 
+}
+
+resource "google_project_service" "ivpc_container_registry" {
+  project   = "${google_project.ivpc.project_id}"
+  service   = "containerregistry.googleapis.com"
+}
+
+resource "google_project_service" "ivpc_service_networking" {
+  project   = "${google_project.ivpc.project_id}"
+  service   = "servicenetworking.googleapis.com"
+}
+
+resource "google_project_service" "ivpc_service_usage" {
+  project   = "${google_project.ivpc.project_id}"
+  service   = "serviceusage.googleapis.com"
+}
+
+
+resource "google_project_service" "ivpc_sql_component" {
+  project   = "${google_project.ivpc.project_id}"
+  service   = "sql-component.googleapis.com"
+}
+
 
