@@ -174,8 +174,8 @@ resource "kubernetes_service" "hello-server" {
   metadata {
     name = "hello-server"
 
-    annotations {
-      "cloud.google.com/load-balancer-type" = "Internal"
+    annotations = {
+      cloud.google.com/load-balancer-type = "Internal"
     }
   }
   
