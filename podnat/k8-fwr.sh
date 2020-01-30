@@ -1,0 +1,1 @@
+../allnat/k8-fwr.sh
