@@ -26,9 +26,9 @@ export TF_VAR_gcp_user="$(gcloud auth list \
 
 export TF_VAR_billing_account="$(gcloud beta billing accounts list \
   | grep "${TF_VAR_gcp_user}" \
-  | awk '{print "$1"}')"
+  | awk '{print $1}')"
 
-export TF_VAR_isolated_vpc_pid="$(echo ivpc-pid-"$(od -An -N4 -i /dev/random)" \
+export TF_VAR_isolated_vpc_pid="$(echo ivpc-pid-$(od -An -N4 -i /dev/random) \
   | sed 's/ //')"
 
 export TF_VAR_cluster_cidr=192.168.1.0/24
