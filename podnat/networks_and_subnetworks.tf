@@ -28,7 +28,7 @@ resource "google_compute_network" "ivpc" {
     # The project's services must be set up before the
     # network is enabled as the compute API will not
     # be enabled and cause the setup to fail.
-    "google_project_services.ivpc",
+    "google_project_service.ivpc_service_networking",
   ]
 
   timeouts {
