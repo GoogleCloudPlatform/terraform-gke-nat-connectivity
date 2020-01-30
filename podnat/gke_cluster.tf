@@ -66,7 +66,7 @@ resource "google_container_cluster" "cluster1" {
   depends_on = [
     # The project APIs services must be set up before the
     # cluster is created or the API call fails.
-    "google_project_services.ivpc",
+    "google_project_service.ivpc_service_networking",
   ]
 
   timeouts {
