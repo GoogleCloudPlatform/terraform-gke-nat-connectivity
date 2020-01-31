@@ -85,9 +85,6 @@ data "google_client_config" "default" {}
 provider "kubernetes" {
   load_config_file = false
 
-
-  #username = "${var.gcp_user}"
-  #password = "${var.cluster_password}"
   host = "https://${google_container_cluster.cluster1.endpoint}"
   token = "${data.google_client_config.default.access_token}"
   cluster_ca_certificate = "${base64decode(google_container_cluster.cluster1.master_auth.0.cluster_ca_certificate)}"
