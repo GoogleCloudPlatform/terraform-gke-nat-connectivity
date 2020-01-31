@@ -26,12 +26,12 @@ export TF_VAR_user_account="$(gcloud auth list \
 
 export TF_VAR_billing_account="$(gcloud beta billing accounts list \
   | grep "${TF_VAR_user_account}" \
-  | awk '{print "$1"}')"
+  | awk '{print $1}')"
 
-export TF_VAR_shared_vpc_pid="$(echo svpc-pid-"$(od -An -N4 -i /dev/random)" \
+export TF_VAR_shared_vpc_pid="$(echo svpc-pid-$(od -An -N4 -i /dev/random) \
   | sed 's/ //')"
 
-export TF_VAR_isolated_vpc_pid="$(echo ivpc-pid-"$(od -An -N4 -i /dev/random)" \
+export TF_VAR_isolated_vpc_pid="$(echo ivpc-pid-$(od -An -N4 -i /dev/random) \
   | sed 's/ //')"
 
 export TF_VAR_isolated_net_name=isolated-vpc-net
