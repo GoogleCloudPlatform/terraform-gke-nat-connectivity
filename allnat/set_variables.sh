@@ -53,4 +53,4 @@ export TF_VAR_test2_cidr=10.160.0.0/11
 export TF_VAR_test3_cidr=10.64.0.0/19
 export TF_VAR_masquerade=true
 export TF_VAR_ilb_cidr=10.32.31.0/24
-export TF_VAR_ilb_ip=10.32.31.1
+export TF_VAR_ilb_ip=10.32.31.49
