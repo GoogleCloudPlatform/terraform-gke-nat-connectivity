@@ -18,7 +18,7 @@ limitations under the License.
 
 
 provider "google" {
-  version = "2.5.1"
+  version = "2.20.1"
   region  = "${var.region}"
   zone    = "${var.zone}"
 }
