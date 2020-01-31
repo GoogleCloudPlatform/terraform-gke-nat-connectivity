@@ -49,13 +49,13 @@ module "allnat" {
   Configure providers
  *****************************************/
 provider "google" {
-  version = "2.5.1"
+  version = "2.20.1"
   region  = "${var.region}"
   zone    = "${var.zone}"
 }
 
 provider "google-beta"{
-  version  = "2.5.1"
+  version  = "2.20.1"
   project  = "${module.allnat.ivpc_project}"
   region   = "${var.region}"
   zone     = "${var.zone}"
