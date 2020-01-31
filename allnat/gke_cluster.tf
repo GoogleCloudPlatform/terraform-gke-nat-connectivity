@@ -43,7 +43,7 @@ resource "google_container_cluster" "cluster1" {
       "https://www.googleapis.com/auth/monitoring",
     ]
 
-    metadata {
+    metadata = {
       disable-legacy-endpoints = "true"
     }
 
