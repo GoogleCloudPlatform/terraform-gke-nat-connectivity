@@ -116,7 +116,7 @@ resource "kubernetes_service" "hello-server" {
   }
   
   spec {
-    selector {
+    selector = {
       run = "my-app"
     }
     
