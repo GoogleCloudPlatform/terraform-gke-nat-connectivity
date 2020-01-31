@@ -18,7 +18,7 @@ limitations under the License.
   Configure providers
  *****************************************/
 provider "google" {
-  version = "2.5.1"
+  version = "2.20.1"
   project = "${var.isolated_vpc_pid}"
 
   region  = "${var.region}"
