@@ -43,9 +43,9 @@ resource "google_sql_database_instance" "master" {
     ip_configuration {
       ipv4_enabled        = "false"
       private_network     = "${module.allnat.ivpc_network}"
-      authorized_networks = [
-         "${data.null_data_source.auth_netw_postgres_allowed.*.outputs}",
-       ] 
+      authorized_networks {
+        name = "ivpc network"
+        value = "10.32.0.0/24"
     }
   }
 
